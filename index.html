@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#101827" />
+  <title>SHIVANG — Photo to PDF</title>
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="SHIVANG Photo to PDF home">
+        <span class="brand-mark">S</span>
+        <span class="brand-name">SHIVANG<small>PHOTO TO PDF</small></span>
+      </a>
+      <div class="top-actions">
+        <button id="uploadMore" class="button secondary hidden" type="button">＋ Add images</button>
+        <button id="pasteButton" class="button secondary" type="button">▣ Paste</button>
+        <button id="downloadPdf" class="button download-button" type="button" disabled>↓ Download all PDF</button>
+      </div>
+    </header>
+
+    <section id="welcome" class="welcome">
+      <div class="welcome-icon">⇧</div>
+      <h1>Turn your photos into a PDF</h1>
+      <p>Upload or paste one or more images. They’ll be combined into one PDF in the order you add them.</p>
+      <label class="dropzone" id="dropzone" for="fileInput">
+        <span class="upload-symbol">↑</span>
+        <strong>Upload images</strong>
+        <span>Choose multiple files or drag them here</span>
+        <small>JPG · PNG · WEBP · GIF · BMP · TIFF</small>
+      </label>
+      <p class="privacy-note">Images stay in your browser. Original resolution is preserved; no OCR is added.</p>
+    </section>
+
+    <section id="workspace" class="workspace hidden">
+      <div class="toolbar">
+        <div class="status" id="status" role="status">Ready</div>
+        <div class="tools">
+          <span id="pageLabel" class="page-label">0 images</span>
+          <button id="fullscreen" class="tool text-tool">Full screen</button>
+          <button id="remove" class="tool danger" title="Clear all images">✕ Clear all</button>
+        </div>
+      </div>
+      <div id="progressWrap" class="progress-wrap hidden">
+        <div class="progress-track"><div id="progressBar" class="progress-bar"></div></div>
+        <span id="progressText">Preparing…</span>
+      </div>
+      <div id="previewFrame" class="preview-frame">
+        <div id="pageGallery" class="page-gallery"></div>
+        <div id="emptyPreview" class="empty-preview hidden">Your PDF preview will appear here.</div>
+      </div>
+    </section>
+    <input id="fileInput" type="file" accept="image/*,.jpg,.jpeg,.png,.webp,.gif,.bmp,.tif,.tiff" multiple hidden />
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <footer>Photo to PDF · Local processing · No OCR</footer>
+  </main>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
